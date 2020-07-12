@@ -11,7 +11,7 @@ import {
 import { UserService } from './user.service';
 import { User } from './user.entity';
 import { InsertResult, DeleteResult } from 'typeorm';
-import { CreateUserDTO } from './user.dto';
+import { CreateUserDto } from './user.dto';
 
 @Controller('user')
 export class UserController {
@@ -29,7 +29,7 @@ export class UserController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  create(@Body() user: CreateUserDTO): Promise<InsertResult> {
+  create(@Body() user: CreateUserDto): Promise<InsertResult> {
     return this.userService.create(user);
   }
 
