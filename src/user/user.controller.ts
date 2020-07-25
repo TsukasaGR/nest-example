@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { ApiResponse } from '@nestjs/swagger';
 import { UserService } from './user.service';
+// import { SubService } from '../shared/sub/sub.service';
 import {
   CreateUserDto,
   IndexResponse,
@@ -21,6 +22,11 @@ import {
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
+
+  @Get('/test')
+  test(): string {
+    return this.userService.test();
+  }
 
   @Get()
   @ApiResponse({ status: HttpStatus.OK, type: IndexResponse })
