@@ -11,7 +11,12 @@ async function bootstrap() {
   // env及びconfig有効化
   const configService = app.get(ConfigService);
   // Swagger有効化
-  const options = new DocumentBuilder().setTitle('NestJS サンプル').build();
+  const options = new DocumentBuilder()
+    .setTitle('NestJS サンプル')
+    .setDescription('The サンプル API description')
+    .setVersion('1.0')
+    .addTag('users')
+    .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
 
